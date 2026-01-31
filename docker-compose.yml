@@ -1,0 +1,21 @@
+services:
+  news-alert:
+    build: .
+    container_name: news-alert
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Persist state file
+      - ./data:/app/data
+      # Mount config for easy updates
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      # Override state file path to use mounted volume
+      - STATE_FILE=/app/data/state.json
+    networks:
+      - news-alert-net
+
+networks:
+  news-alert-net:
+    driver: bridge

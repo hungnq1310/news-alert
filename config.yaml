@@ -1,0 +1,17 @@
+api:
+  base_url: http://localhost:8005/api/v3
+  timeout: 30
+
+polling:
+  interval_seconds: 60
+
+watched:
+  symbols: ["VNM", "VIC", "HPG", "MSN", "FUESSVFL", "TCM", "ACB", "STB"]
+  topics: ["financial_performance", "market_expansion", "strategic_partnership", "mergers_acquisitions"]
+  event_types: ["shareholder_reduction", "shareholder_increase", "equity_pledge", "equity_freeze", "bankruptcy_liquidation", "senior_executive_death", "major_asset_loss", "major_external_compensation", "major_safety_incident"]
+
+telegram:
+  bot_token: ${TELEGRAM_BOT_TOKEN}
+  chat_ids:
+    - ${TELEGRAM_CHAT_ID}
+  thread_id: ${TELEGRAM_THREAD_ID}  # Optional: Send to specific topic in forum groups
