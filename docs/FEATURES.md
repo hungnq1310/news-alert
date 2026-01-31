@@ -34,14 +34,22 @@ News Alert System polls news API and sends matching articles to Telegram forum t
 - **Persistent Volume**: State preserved in `./data/` directory
 - **Easy Management**: Use `./deploy.sh` script for common operations
 
-### 6. Configuration
+### 6. CI/CD Pipeline
+- **GitHub Actions**: Automatic Docker builds on code changes
+- **Docker Hub Push**: Images automatically pushed to Docker Hub
+- **Multi-Tags**: Generates `latest`, branch, and SHA tags
+- **Manual Trigger**: On-demand builds via workflow_dispatch
+- **PR Builds**: Test builds for pull requests
+
+### 7. Configuration
 - **YAML + ENV**: Centralized config in `config.yaml` with environment variable overrides
 - **API URL Override**: Set `API_BASE_URL` in `.env` for Docker deployment
 - **Watched Items**: Configure symbols, topics, and event types to watch
 - **Polling Interval**: Adjustable polling frequency
 
-### 7. Claude Code Hooks
+### 8. Claude Code Hooks
 - **Implementation Logging**: Tracks every tool execution to `.claude/logs/implementation-steps.jsonl`
+- **Auto-Commit**: Suggests conventional commit messages on session end
 - **Project-Specific**: Hooks stored in `.claude/` directory
 - **Auto-Trigger**: Runs on PostToolUse and Stop events
 
@@ -235,7 +243,9 @@ news-alert/
 | Telegram Forum Topics | ✅ |
 | Deduplication | ✅ |
 | Docker Deployment | ✅ |
+| CI/CD Pipeline | ✅ |
 | Claude Code Hooks | ✅ |
+| Auto-Commit Suggestion | ✅ |
 | Auto-Restart | ✅ |
 | Health Check | ✅ |
 | State Persistence | ✅ |
